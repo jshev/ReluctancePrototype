@@ -8,20 +8,18 @@ public class PlayerMovement : MonoBehaviour
 
     float speed;
     Rigidbody2D rb;
-    Vector2 defaultPos;
-    public GameObject textBox;
-    public Text dialogue;
+    public GameObject inventory;
     public Text pauseTxt;
+    public Sprite bar;
+    public GameObject slot;
 
     // Start is called before the first frame update
     void Start()
     {
-        defaultPos = transform.localPosition;
         speed = 10f;
         rb = GetComponent<Rigidbody2D>();
-        dialogue.text = "";
         pauseTxt.text = "";
-        textBox.SetActive(false);
+        inventory.SetActive(false);
     }
 
     // Update is called once per frame
@@ -29,26 +27,18 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.MovePosition(rb.position + new Vector2(Input.GetAxis("Horizontal") * speed * Time.deltaTime, Input.GetAxis("Vertical") * speed * Time.deltaTime));
 
-        /* if (Input.anyKey)
-        {
-            rb.MovePosition(rb.position + new Vector2(Input.GetAxis("Horizontal") * speed * Time.deltaTime, Input.GetAxis("Vertical") * speed * Time.deltaTime));
-            defaultPos = transform.localPosition;
-        } else
-        {
-            transform.position = defaultPos;
-        }
-        */
-
         if (Input.GetKeyDown(KeyCode.P))
         {
             if (Time.timeScale == 0)
             {
                 pauseTxt.text = "";
+                inventory.SetActive(false);
                 Time.timeScale = 1;
             }
             else
             {
-                pauseTxt.text = "PAUSED";
+                pauseTxt.text = "INVENTORY";
+                inventory.SetActive(true);
                 Time.timeScale = 0;
             }
         }
@@ -59,9 +49,17 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.tag == "Gray")
         {
             //Debug.Log("Hello!")
-            textBox.SetActive(true);
-            dialogue.text = "Hello World!";
-            Time.timeScale = 0;
+            // textBox.SetActive(true);
+            // dialogue.text = "Hello World!";
+            //Time.timeScale = 0;
+        } else if (other.gameObject.tag == "Vend")
+        {
+            //GameObject.Find("Slot").GetComponent<SpriteRenderer>().sprite.name == "square"
+            if (slot.GetComponent<SpriteRenderer>().sprite.name == "square")
+            {
+                Debug.Log("Got bar!");
+                slot.GetComponent<SpriteRenderer>().sprite = bar;
+            }
         }
     }
 }
