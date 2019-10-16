@@ -8,8 +8,13 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
 	public Text dialogueText;
+    public Text consequences;
 	public GameObject textBox;
     public Button continueButt;
+    public Dialogue dig;
+
+    public Button[] toIDbuttons;
+    //toID5, toID6, toID7, toID8, toID9, toNowhere
 
 	// public Animator animator;
 
@@ -26,6 +31,8 @@ public class DialogueManager : MonoBehaviour
 
 	public void StartDialogue(Dialogue dialogue)
 	{
+        disableAllButtons();
+        dig = dialogue;
         continueButt.gameObject.SetActive(true);
         textBox.SetActive(true);
         Time.timeScale = 0;
@@ -65,13 +72,56 @@ public class DialogueManager : MonoBehaviour
 		}
 	}
 
+    void disableAllButtons()
+    {
+        foreach (Button butt in toIDbuttons)
+        {
+            butt.gameObject.SetActive(false);
+        }
+    }
+
 	void EndDialogue()
 	{
-        dialogueText.text = "";
-        textBox.SetActive(false);
-        Time.timeScale = 1;
-        continueButt.gameObject.SetActive(false);
-        //animator.SetBool("IsOpen", false);
+        switch (dig.id)
+        {
+            case 4:
+                disableAllButtons();
+                continueButt.gameObject.SetActive(false);
+                // toID9 and toID8
+                toIDbuttons[3].gameObject.SetActive(true);
+                toIDbuttons[4].gameObject.SetActive(true);
+                break;
+            case 6:
+                disableAllButtons();
+                continueButt.gameObject.SetActive(false);
+                // toNoWhere and toID7
+                toIDbuttons[2].gameObject.SetActive(true);
+                toIDbuttons[5].gameObject.SetActive(true);
+                break;
+            case 8:
+                consequences.text = "Your relationship with this character has weakened...";
+                disableAllButtons();
+                dialogueText.text = "";
+                textBox.SetActive(false);
+                Time.timeScale = 1;
+                continueButt.gameObject.SetActive(false);
+                break;
+            case 9:
+                disableAllButtons();
+                continueButt.gameObject.SetActive(false);
+                // toID5, toID6, and to ID8
+                toIDbuttons[0].gameObject.SetActive(true);
+                toIDbuttons[1].gameObject.SetActive(true);
+                toIDbuttons[3].gameObject.SetActive(true);
+                break;
+            default:
+                disableAllButtons();
+                dialogueText.text = "";
+                textBox.SetActive(false);
+                Time.timeScale = 1;
+                continueButt.gameObject.SetActive(false);
+                break;
+        }
     }
 
 }
