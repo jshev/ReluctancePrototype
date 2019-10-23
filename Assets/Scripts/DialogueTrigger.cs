@@ -12,7 +12,7 @@ public class DialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue()
     {
-        Debug.Log("Triggered!");
+        // Debug.Log("Triggered!");
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
     }
 

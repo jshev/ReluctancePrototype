@@ -9,9 +9,12 @@ public class DialogueManager : MonoBehaviour
 {
 	public Text dialogueText;
     public Text consequences;
+
     public GameObject environment;
     SpriteRenderer envSR;
-	public GameObject textBox;
+    float currCountdownValue;
+
+    public GameObject textBox;
     public Button continueButt;
     public Dialogue dig;
 
@@ -53,7 +56,7 @@ public class DialogueManager : MonoBehaviour
 
 	public void DisplayNextSentence()
 	{
-        Debug.Log("Thank you, next.");
+        // Debug.Log("Thank you, next.");
 		if (sentences.Count == 0)
 		{
 			EndDialogue();
@@ -132,15 +135,27 @@ public class DialogueManager : MonoBehaviour
 
     void switchWorld()
     {
+        StartCoroutine(StartCountdown());
         if (envSR.color == Color.white)
         {
-            Debug.Log("White, change to grey");
+            //Debug.Log("White, change to grey");
             envSR.color = Color.gray;
         } else
         {
-            Debug.Log("Grey, change to white");
+            //Debug.Log("Grey, change to white");
             //environment.GetComponent<SpriteRenderer>().color = new Color(255f, 255f, 255f);
             envSR.color = Color.white;
+        }
+    }
+
+    public IEnumerator StartCountdown(float countdownValue = 10)
+    {
+        currCountdownValue = countdownValue;
+        while (currCountdownValue > 0)
+        {
+            Debug.Log("Countdown: " + currCountdownValue);
+            yield return new WaitForSeconds(1.0f);
+            currCountdownValue--;
         }
     }
 

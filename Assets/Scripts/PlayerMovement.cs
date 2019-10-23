@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject inventory;
     public Text pauseTxt;
     public Sprite bar;
-    public GameObject slot;
+    public GameObject[] slots;
 
     // Start is called before the first frame update
     void Start()
@@ -48,11 +48,18 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.tag == "Vend")
         {
-            //GameObject.Find("Slot").GetComponent<SpriteRenderer>().sprite.name == "square"
+            addToInventory(bar);
+        }
+    }
+
+    void addToInventory(Sprite sp)
+    {
+        foreach (GameObject slot in slots)
+        {
             if (slot.GetComponent<SpriteRenderer>().sprite.name == "square")
             {
-                Debug.Log("Got bar!");
-                slot.GetComponent<SpriteRenderer>().sprite = bar;
+                slot.GetComponent<SpriteRenderer>().sprite = sp;
+                break;
             }
         }
     }
