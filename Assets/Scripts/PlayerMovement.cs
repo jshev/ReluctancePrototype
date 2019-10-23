@@ -46,13 +46,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Gray")
-        {
-            //Debug.Log("Hello!")
-            // textBox.SetActive(true);
-            // dialogue.text = "Hello World!";
-            //Time.timeScale = 0;
-        } else if (other.gameObject.tag == "Vend")
+        if (other.gameObject.tag == "Vend")
         {
             //GameObject.Find("Slot").GetComponent<SpriteRenderer>().sprite.name == "square"
             if (slot.GetComponent<SpriteRenderer>().sprite.name == "square")

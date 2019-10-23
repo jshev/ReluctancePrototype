@@ -9,6 +9,8 @@ public class DialogueManager : MonoBehaviour
 {
 	public Text dialogueText;
     public Text consequences;
+    public GameObject environment;
+    SpriteRenderer envSR;
 	public GameObject textBox;
     public Button continueButt;
     public Dialogue dig;
@@ -27,6 +29,7 @@ public class DialogueManager : MonoBehaviour
         continueButt.gameObject.SetActive(false);
         textBox.SetActive(false);
         dialogueText.text = "";
+        envSR = environment.GetComponent<SpriteRenderer>();
     }
 
 	public void StartDialogue(Dialogue dialogue)
@@ -59,8 +62,10 @@ public class DialogueManager : MonoBehaviour
 
 		string sentence = sentences.Dequeue();
 		StopAllCoroutines();
-		StartCoroutine(TypeSentence(sentence));
-	}
+        //StartCoroutine(TypeSentence(sentence));
+        dialogueText.text = sentence;
+
+    }
 
 	IEnumerator TypeSentence(string sentence)
 	{
@@ -100,6 +105,7 @@ public class DialogueManager : MonoBehaviour
                 break;
             case 8:
                 consequences.text = "Your relationship with this character has weakened...";
+                switchWorld();
                 disableAllButtons();
                 dialogueText.text = "";
                 textBox.SetActive(false);
@@ -121,6 +127,20 @@ public class DialogueManager : MonoBehaviour
                 Time.timeScale = 1;
                 continueButt.gameObject.SetActive(false);
                 break;
+        }
+    }
+
+    void switchWorld()
+    {
+        if (envSR.color == Color.white)
+        {
+            Debug.Log("White, change to grey");
+            envSR.color = Color.gray;
+        } else
+        {
+            Debug.Log("Grey, change to white");
+            //environment.GetComponent<SpriteRenderer>().color = new Color(255f, 255f, 255f);
+            envSR.color = Color.white;
         }
     }
 
