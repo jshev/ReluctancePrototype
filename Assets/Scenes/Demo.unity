@@ -2440,7 +2440,16 @@ MonoBehaviour:
   inventory: {fileID: 792804528}
   pauseTxt: {fileID: 671344706}
   bar: {fileID: 21300000, guid: 1921b0f19efd64cccae76d64df5d866a, type: 3}
-  slot: {fileID: 1929324365}
+  slots:
+  - {fileID: 1929324365}
+  - {fileID: 2113756446}
+  - {fileID: 814887687}
+  - {fileID: 1064988956}
+  - {fileID: 1925574749}
+  - {fileID: 1947343486}
+  - {fileID: 1114984489}
+  - {fileID: 904518276}
+  - {fileID: 1330312760}
 --- !u!212 &1729849818
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3207,7 +3216,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 31dfc126e6d31431d9e7b5bde18e3d28, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 13fc5be6648aa4b508b25036b663d9e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
