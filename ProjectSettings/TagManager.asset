@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Gray
   - Vend
+  - Brace
   layers:
   - Default
   - TransparentFX

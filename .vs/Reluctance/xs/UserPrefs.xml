@@ -1,10 +1,10 @@
 ﻿<Properties StartupConfiguration="{07734D49-99F7-5BD8-6369-A372DC8F6EFD}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerMovement.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/DialogueManager.cs">
     <Files>
       <File FileName="Assets/Scripts/PlayerMovement.cs" Line="57" Column="43" />
       <File FileName="Assets/Scripts/DialogueManager.cs" Line="145" Column="15" />
-      <File FileName="Assets/Scripts/DialogueTrigger.cs" Line="15" Column="12" />
-      <File FileName="Assets/Scripts/Dialogue.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/DialogueTrigger.cs" />
+      <File FileName="Assets/Scripts/Dialogue.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,7 +12,7 @@
           <Node name="Reluctance" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="PlayerMovement.cs" selected="True" />
+                <Node name="DialogueManager.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -22,7 +22,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="1733d70f-766f-4903-a308-0c0b12870fec" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="55f5ffa1-b81b-4116-9af0-c8413daee4e8" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
