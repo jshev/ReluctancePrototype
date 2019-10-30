@@ -17,6 +17,8 @@ public class DialogueManager : MonoBehaviour
     public GameObject textBox;
     public Button continueButt;
     public GameObject phoneObj;
+    public Sprite greyGrass;
+    public Sprite grass;
     SpriteRenderer phoneSR;
     public Dialogue dig;
 
@@ -452,7 +454,7 @@ public class DialogueManager : MonoBehaviour
     void switchWorld()
     {
         StartCoroutine(StartCountdown());
-        if (envSR.color == Color.white)
+        /* if (envSR.color == Color.white)
         {
             //Debug.Log("White, change to grey");
             envSR.color = Color.gray;
@@ -462,6 +464,20 @@ public class DialogueManager : MonoBehaviour
             //environment.GetComponent<SpriteRenderer>().color = new Color(255f, 255f, 255f);
             envSR.color = Color.white;
         }
+        */
+
+        if (envSR.sprite.name == "grass")
+        {
+            //Debug.Log("White, change to grey");
+            envSR.sprite = greyGrass;
+        }
+        /*else
+        {
+            //Debug.Log("Grey, change to white");
+            //environment.GetComponent<SpriteRenderer>().color = new Color(255f, 255f, 255f);
+            envSR.sprite = grass;
+        }
+        */
     }
 
     public IEnumerator StartCountdown(float countdownValue = 5)

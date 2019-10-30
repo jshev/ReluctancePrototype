@@ -7,6 +7,7 @@ TagManager:
   - Gray
   - Vend
   - Brace
+  - Enemy
   layers:
   - Default
   - TransparentFX

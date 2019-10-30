@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -42,6 +43,11 @@ public class PlayerMovement : MonoBehaviour
                 Time.timeScale = 0;
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(1);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -49,6 +55,9 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.tag == "Vend")
         {
             addToInventory(bar);
+        } else if (other.gameObject.tag == "Enemy")
+        {
+
         }
     }
 
