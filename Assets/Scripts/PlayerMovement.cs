@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayerPrefs.SetInt("playerhealth", 100);
         speed = 10f;
         rb = GetComponent<Rigidbody2D>();
         pauseTxt.text = "";
@@ -44,10 +45,11 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        /*if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(1);
         }
+        */
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -57,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
             addToInventory(bar);
         } else if (other.gameObject.tag == "Enemy")
         {
-
+            SceneManager.LoadScene("Combat");
         }
     }
 

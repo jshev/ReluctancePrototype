@@ -470,6 +470,7 @@ public class DialogueManager : MonoBehaviour
         {
             //Debug.Log("White, change to grey");
             envSR.sprite = greyGrass;
+
         }
         /*else
         {
