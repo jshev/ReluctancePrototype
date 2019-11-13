@@ -19,6 +19,7 @@ public class combatManager : MonoBehaviour
     bool resting;
     bool charging;
     bool isolated;
+    bool recovering;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,7 @@ public class combatManager : MonoBehaviour
         resting = false;
         charging = false;
         isolated = false;
+        recovering = false;
         playerHtext.text = "Player Health: " + playerHealth + "/50"; 
         enemyHtext.text = "Enemy Health: " + enemyHealth + "/50";
 
@@ -38,11 +40,22 @@ public class combatManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (enemyHealth <= 0 || playerHealth <= 0)
+        if (enemyHealth <= 0)
         {
+            Debug.Log("Player won!");
             PlayerPrefs.SetInt("playerhealth", playerHealth);
             SceneManager.LoadScene("Demo");
         }
+
+        if (playerHealth <= 0)
+        {
+            //PlayerPrefs.SetInt("playerhealth", playerHealth);
+            Debug.Log("Enemy won...");
+            SceneManager.LoadScene("Demo");
+        }
+
+        //Debug.Log("Recovering: " + recovering);
+        //Debug.Log("Isolated: " + isolated);
     }
 
     void attackPlayer()
@@ -58,8 +71,9 @@ public class combatManager : MonoBehaviour
                     laughAttack();
                 } else
                 {
-                    enemyTxt.text = "Enemy used Laugh Attack! But it does no Damage!";
                     isolated = false;
+                    enemyTxt.text = "Enemy used Laugh Attack! But it does no Damage!";
+                    //Debug.Log("Recovering: " + recovering);
                 }
             }
             else
@@ -82,6 +96,7 @@ public class combatManager : MonoBehaviour
     {
         if (turnsUntilEattack > 0)
         {
+            isolated = false;
             turnsUntilEattack -= 1;
             //Debug.Log("Enemy is charging Eye Attack...");
             enemyTxt.text = "Enemy is charging Eye Attack...";
@@ -98,11 +113,12 @@ public class combatManager : MonoBehaviour
                 charging = false;
             } else
             {
+                isolated = false;
+                charging = false;
                 enemyTxt.text = "Enemy used Eye Attack! But it does no Damage!";
                 //playerHealth -= 20;
                 //playerHtext.text = "Player Health: " + playerHealth + "/50";
-                charging = false;
-                isolated = false;
+                //Debug.Log("Recovering: " + recovering);
             }
             
         }
@@ -124,16 +140,25 @@ public class combatManager : MonoBehaviour
     {
         if (!resting)
         {
+            if (!recovering)
+            {
+                playerTxt.text = "Andrew used Scream! It does 5 Damage!";
+                enemyHealth -= 5;
+                enemyHtext.text = "Enemy Health: " + enemyHealth + "/50";
+                attackPlayer();
+            } else
+            {
+                playerTxt.text = "Andrew is not ready to attack...";
+                recovering = false;
+                attackPlayer();
+            }
             //Debug.Log("Andrew used Scream!");
-            playerTxt.text = "Andrew used Scream! It does 5 Damage!";
-            enemyHealth -= 5;
-            enemyHtext.text = "Enemy Health: " + enemyHealth + "/50";
-            attackPlayer();
+            
         } else
         {
             //Debug.Log("Andrew is Resting...");
             playerTxt.text = "Andrew is Resting...";
-            Debug.Log("turnsUntilPhealth = " + turnsUntilPhealth);
+            //Debug.Log("turnsUntilPhealth = " + turnsUntilPhealth);
             rest();
             attackPlayer();
         }
@@ -143,17 +168,27 @@ public class combatManager : MonoBehaviour
     {
         if (!resting)
         {
-            //Debug.Log("Andrew used Lash Out!");
-            playerTxt.text = "Andrew used Lash Out! It does 10 Damage!";
-            enemyHealth -= 10;
-            enemyHtext.text = "Enemy Health: " + enemyHealth + "/50";
-            attackPlayer();
+            if (!recovering)
+            {
+                //Debug.Log("Andrew used Lash Out!");
+                playerTxt.text = "Andrew used Lash Out! It damages both opponents!";
+                enemyHealth -= 10;
+                enemyHtext.text = "Enemy Health: " + enemyHealth + "/50";
+                playerHealth -= 5;
+                playerHtext.text = "Player Health: " + playerHealth + "/50";
+                attackPlayer();
+            } else
+            {
+                playerTxt.text = "Andrew is not ready to attack...";
+                recovering = false;
+                attackPlayer();
+            }
         }
         else
         {
             //Debug.Log("Andrew is Resting...");
             playerTxt.text = "Andrew is Resting...";
-            Debug.Log("turnsUntilPhealth = " + turnsUntilPhealth);
+            //Debug.Log("turnsUntilPhealth = " + turnsUntilPhealth);
             rest();
             attackPlayer();
         }
@@ -165,15 +200,25 @@ public class combatManager : MonoBehaviour
         {
             //Debug.Log("Andrew used Self Isloate! His defense was increased by 1!");
             //Debug.Log("Andrew used Self Isloate! He takes no Damage this Turn!");
-            playerTxt.text = "Andrew used Self Isloate! He takes no Damage this Turn!";
-            isolated = true;
-            attackPlayer();
+            if (!recovering)
+            {
+                isolated = true;
+                playerTxt.text = "Andrew used Self Isloate! He takes no Damage this Turn!";
+                recovering = true;
+                attackPlayer();
+            } else
+            {
+                playerTxt.text = "Andrew is not ready to attack...";
+                recovering = false;
+                //Debug.Log("Recovering: " + recovering);
+                attackPlayer();
+            }
         }
         else
         {
             //Debug.Log("Andrew is Resting...");
             playerTxt.text = "Andrew is Resting...";
-            Debug.Log("turnsUntilPhealth = " + turnsUntilPhealth);
+            //Debug.Log("turnsUntilPhealth = " + turnsUntilPhealth);
             rest();
             attackPlayer();
         }
@@ -183,18 +228,26 @@ public class combatManager : MonoBehaviour
     {
         if (!resting)
         {
-            resting = true;
-            turnsUntilPhealth = 1;
-            //Debug.Log("Andrew has started Resting...");
-            playerTxt.text = "Andrew has started Resting...";
-            Debug.Log("turnsUntilPhealth = " + turnsUntilPhealth);
-            attackPlayer();
+            if (!recovering) {
+                resting = true;
+                turnsUntilPhealth = 1;
+                //Debug.Log("Andrew has started Resting...");
+                playerTxt.text = "Andrew has started Resting...";
+                //Debug.Log("turnsUntilPhealth = " + turnsUntilPhealth);
+                attackPlayer();
+            } else
+            {
+                playerTxt.text = "Andrew is not ready to attack...";
+                attackPlayer();
+                recovering = false;
+                //Debug.Log("Recovering: " + recovering);
+            }
         }
         else
         {
             //Debug.Log("Andrew is Resting...");
             playerTxt.text = "Andrew is Resting...";
-            Debug.Log("turnsUntilPhealth = " + turnsUntilPhealth);
+            //Debug.Log("turnsUntilPhealth = " + turnsUntilPhealth);
             rest();
             attackPlayer();
         }
