@@ -212,7 +212,7 @@ public class DialogueManager : MonoBehaviour
                 toIDbuttons[8].gameObject.SetActive(true);
                 break;
             case 13:
-                SceneManager.LoadScene("Menu");
+                SceneManager.LoadScene("Combat");
                 break;
             case 14:
                 disableAllButtons();
@@ -225,7 +225,7 @@ public class DialogueManager : MonoBehaviour
                 toIDbuttons[12].gameObject.SetActive(true);
                 break;
             case 15:
-                SceneManager.LoadScene("Menu");
+                SceneManager.LoadScene("Combat");
                 break;
             /*
             case 8:

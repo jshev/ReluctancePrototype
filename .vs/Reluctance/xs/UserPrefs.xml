@@ -1,13 +1,13 @@
 ﻿<Properties StartupConfiguration="{07734D49-99F7-5BD8-6369-A372DC8F6EFD}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/doors.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/DialogueManager.cs">
     <Files>
       <File FileName="Assets/Scripts/PlayerMovement.cs" Line="62" Column="46" />
-      <File FileName="Assets/Scripts/DialogueManager.cs" />
-      <File FileName="Assets/Scripts/DialogueTrigger.cs" />
+      <File FileName="Assets/Scripts/DialogueManager.cs" Line="128" Column="40" />
+      <File FileName="Assets/Scripts/DialogueTrigger.cs" Line="21" Column="5" />
       <File FileName="Assets/Scripts/Dialogue.cs" />
       <File FileName="Assets/Scripts/Buttons.cs" />
       <File FileName="Assets/Scripts/combatManager.cs" />
-      <File FileName="Assets/Scripts/doors.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/doors.cs" Line="35" Column="46" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,7 +15,7 @@
           <Node name="Reluctance" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="doors.cs" selected="True" />
+                <Node name="DialogueManager.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -25,7 +25,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="598fb6cd-bd20-4d53-a933-a6925b13aca5" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="bf4ac584-03c7-497e-acea-81962480a653" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
