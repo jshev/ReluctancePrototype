@@ -34,13 +34,13 @@ public class PlayerMovement : MonoBehaviour
             if (Time.timeScale == 0)
             {
                 pauseTxt.text = "";
-                inventory.SetActive(false);
+                //inventory.SetActive(false);
                 Time.timeScale = 1;
             }
             else
             {
-                pauseTxt.text = "INVENTORY";
-                inventory.SetActive(true);
+                pauseTxt.text = "PAUSED";
+                //inventory.SetActive(true);
                 Time.timeScale = 0;
             }
         }
@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.tag == "Vend")
         {
-            addToInventory(bar);
+            //addToInventory(bar);
         } else if (other.gameObject.tag == "Enemy")
         {
             SceneManager.LoadScene("Combat");

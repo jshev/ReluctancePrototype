@@ -12,9 +12,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: fb6bbd87384754f5480a1807be3c0ff0
   - enabled: 1
-    path: Assets/Scenes/Demo.unity
-    guid: 7fc9a984d7c5947f2be2d4ffed09052a
+    path: Assets/Scenes/DormRoom.unity
+    guid: 2eabef2acf8b04c88b00e3ef7551bd84
+  - enabled: 1
+    path: Assets/Scenes/Hallway.unity
+    guid: d63124d9748c44cf0b3c6ad19b50a7ed
+  - enabled: 1
+    path: Assets/Scenes/Quad1.unity
+    guid: 8f7a024c204804900b143a4ee45b2a16
   - enabled: 1
     path: Assets/Scenes/Combat.unity
     guid: 76b26855a4df446ae85340c1741862e4
+  - enabled: 1
+    path: Assets/Scenes/Demo.unity
+    guid: 7fc9a984d7c5947f2be2d4ffed09052a
   m_configObjects: {}

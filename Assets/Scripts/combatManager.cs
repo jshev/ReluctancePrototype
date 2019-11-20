@@ -44,14 +44,14 @@ public class combatManager : MonoBehaviour
         {
             Debug.Log("Player won!");
             PlayerPrefs.SetInt("playerhealth", playerHealth);
-            SceneManager.LoadScene("Demo");
+            SceneManager.LoadScene("Menu");
         }
 
         if (playerHealth <= 0)
         {
             //PlayerPrefs.SetInt("playerhealth", playerHealth);
             Debug.Log("Enemy won...");
-            SceneManager.LoadScene("Demo");
+            SceneManager.LoadScene("Menu");
         }
 
         //Debug.Log("Recovering: " + recovering);

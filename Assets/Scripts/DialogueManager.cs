@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 // code obtained from Brackley's YouTube video on How to make a Dialogue System in Unity
 
@@ -14,6 +15,11 @@ public class DialogueManager : MonoBehaviour
     SpriteRenderer envSR;
     float currCountdownValue;
 
+    public GameObject friendPort;
+    SpriteRenderer friendSR;
+    public Sprite botanSprite;
+    public Sprite sabrinaSprite;
+
     public GameObject textBox;
     public Button continueButt;
     public GameObject phoneObj;
@@ -23,14 +29,11 @@ public class DialogueManager : MonoBehaviour
     public Dialogue dig;
 
     public Button[] toIDbuttons;
-    // toID5 (0), toID6 (1), toID7 (2), toID8 (3), toID9 (4), toNowhere (5), toID11 (6)
-    // toID12 (7), toID13 (8), toNowhere(1) (8), toID14 (9), toID15 (10), toID16 (11), toID17 (12)
-    // toNowhere(2) (13), toID18 (14), toID19 (15), toID20 (16), toID21 (18), toNowhere(3) (19)
-    // toID22 (20), toID23 (21), toID24 (22), toID25 (23), toID26 (24), toID27 (25)
-    // toID28 (26), toID29 (27), toID30 (28), toID31 (29)
+    // toID2 (0), toID3 (1), toID4 (2), toID5 (3), toID6 (4), toID8 (5), toID9 (6), toID10 (7), toID11 (8), toID12 (9)
+    // toID13 (10), toID14 (11), toID15 (12)
 
     public Sprite[] messageSprites;
-    // 9 Andrew, 5 Isabel = 14 (13) total
+    // 4 Botan, 1 Sabrina
 
     bool once = true;
 
@@ -47,12 +50,14 @@ public class DialogueManager : MonoBehaviour
         textBox.SetActive(false);
         dialogueText.text = "";
         envSR = environment.GetComponent<SpriteRenderer>();
+        friendSR = friendPort.GetComponent<SpriteRenderer>();
         phoneSR = phoneObj.GetComponent<SpriteRenderer>();
         phoneObj.SetActive(false);
     }
 
 	public void StartDialogue(Dialogue dialogue)
 	{
+        phoneObj.SetActive(false);
         disableAllButtons();
         dig = dialogue;
         continueButt.gameObject.SetActive(true);
@@ -108,20 +113,121 @@ public class DialogueManager : MonoBehaviour
 	{
         switch (dig.id)
         {
+            case 1:
+                disableAllButtons();
+                continueButt.gameObject.SetActive(false);
+                // toID2
+                toIDbuttons[0].gameObject.SetActive(true);
+                break;
+            case 2:
+                disableAllButtons();
+                dialogueText.text = "";
+                continueButt.gameObject.SetActive(false);
+                phoneObj.SetActive(true);
+                phoneSR.sprite = messageSprites[0];
+                friendSR.sprite = null;
+                // toID3 and to ID4
+                toIDbuttons[1].gameObject.SetActive(true);
+                toIDbuttons[2].gameObject.SetActive(true);
+                break;
+            case 3:
+                disableAllButtons();
+                dialogueText.text = "";
+                continueButt.gameObject.SetActive(false);
+                phoneObj.SetActive(true);
+                phoneSR.sprite = messageSprites[1];
+                friendSR.sprite = null;
+                // toID5
+                toIDbuttons[3].gameObject.SetActive(true);
+                break;
             case 4:
                 disableAllButtons();
+                dialogueText.text = "";
                 continueButt.gameObject.SetActive(false);
-                // toID9 and toID8
+                phoneObj.SetActive(true);
+                phoneSR.sprite = messageSprites[2];
+                friendSR.sprite = null;
+                // toID5
                 toIDbuttons[3].gameObject.SetActive(true);
-                toIDbuttons[4].gameObject.SetActive(true);
                 break;
-            case 6:
+            case 5:
+                disableAllButtons();
+                dialogueText.text = "";
+                continueButt.gameObject.SetActive(false);
+                phoneObj.SetActive(true);
+                phoneSR.sprite = messageSprites[3];
+                friendSR.sprite = null;
+                // toID6
+                toIDbuttons[4].gameObject.SetActive(true);
+                PlayerPrefs.SetString("leaveDorm", "true");
+                break;
+
+
+            case 7:
                 disableAllButtons();
                 continueButt.gameObject.SetActive(false);
-                // toNoWhere and toID7
-                toIDbuttons[2].gameObject.SetActive(true);
+                friendSR.sprite = botanSprite;
+                // toID8 and toID9
                 toIDbuttons[5].gameObject.SetActive(true);
+                toIDbuttons[6].gameObject.SetActive(true);
                 break;
+            case 8:
+                disableAllButtons();
+                continueButt.gameObject.SetActive(false);
+                friendSR.sprite = botanSprite;
+                // toID10 and toID11
+                toIDbuttons[7].gameObject.SetActive(true);
+                toIDbuttons[8].gameObject.SetActive(true);
+                break;
+            case 9:
+                disableAllButtons();
+                continueButt.gameObject.SetActive(false);
+                friendSR.sprite = botanSprite;
+                // toID8 and toID12
+                toIDbuttons[5].gameObject.SetActive(true);
+                toIDbuttons[9].gameObject.SetActive(true);
+                break;
+            case 10:
+                disableAllButtons();
+                continueButt.gameObject.SetActive(false);
+                friendSR.sprite = botanSprite;
+                // toID13 and toID14
+                toIDbuttons[10].gameObject.SetActive(true);
+                toIDbuttons[11].gameObject.SetActive(true);
+                break;
+            case 11:
+                disableAllButtons();
+                continueButt.gameObject.SetActive(false);
+                friendSR.sprite = botanSprite;
+                // toID13 and toID14
+                toIDbuttons[10].gameObject.SetActive(true);
+                toIDbuttons[11].gameObject.SetActive(true);
+                break;
+            case 12:
+                disableAllButtons();
+                continueButt.gameObject.SetActive(false);
+                friendSR.sprite = botanSprite;
+                // toID10 and toID11
+                toIDbuttons[7].gameObject.SetActive(true);
+                toIDbuttons[8].gameObject.SetActive(true);
+                break;
+            case 13:
+                SceneManager.LoadScene("Menu");
+                break;
+            case 14:
+                disableAllButtons();
+                dialogueText.text = "";
+                continueButt.gameObject.SetActive(false);
+                phoneObj.SetActive(true);
+                phoneSR.sprite = messageSprites[4];
+                friendSR.sprite = botanSprite;
+                // toID15
+                toIDbuttons[12].gameObject.SetActive(true);
+                break;
+            case 15:
+                SceneManager.LoadScene("Menu");
+                break;
+            /*
             case 8:
                 consequences.text = "Your relationship with this character has weakened...";
                 switchWorld();
@@ -439,7 +545,7 @@ public class DialogueManager : MonoBehaviour
                     Debug.Log(once);
                     break;
                 }
-
+                */
             default:
                 disableAllButtons();
                 dialogueText.text = "";

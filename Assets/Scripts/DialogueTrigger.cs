@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 // code obtained from Brackley's YouTube video on How to make a Dialogue System in Unity
 

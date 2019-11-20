@@ -19,6 +19,7 @@ public class Buttons : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene(1);
+        PlayerPrefs.SetString("leaveDorm", "false");
+        SceneManager.LoadScene("DormRoom");
     }
 }
