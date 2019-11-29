@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public Text pauseTxt;
     public Sprite bar;
     public GameObject[] slots;
+    private Animator myAnimator;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         pauseTxt.text = "";
         inventory.SetActive(false);
+        myAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -29,6 +31,11 @@ public class PlayerMovement : MonoBehaviour
     {
       // movement block
         rb.MovePosition(rb.position + new Vector2(Input.GetAxis("Horizontal") * speed * Time.deltaTime, Input.GetAxis("Vertical") * speed * Time.deltaTime));
+        //TUTORIAL FOR ANIMATION & MOVEMENT: https://www.youtube.com/watch?v=whzomFgjT50
+        myAnimator.SetFloat("speed", Input.GetAxis("Horizontal")); //Gets x-axis for horizontal movement (left and right movement)
+        myAnimator.SetFloat("vertical speed", Input.GetAxis("Vertical")); //Gets y-axis for vertical movement (up and down movement)
+        myAnimator.SetFloat("movement speed", speed); //if the player is moving, the speed will be recorded which will trigger the animations - Antonia G.
+
         // end of movement block
 
         if (Input.GetKeyDown(KeyCode.P))
