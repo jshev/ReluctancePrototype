@@ -19,7 +19,11 @@ public class Buttons : MonoBehaviour
 
     public void PlayGame()
     {
-        PlayerPrefs.SetString("leaveDorm", "false");
+        PlayerPrefs.SetString("leaveArea", "false");
+        PlayerPrefs.SetInt("BFRIENDSHIP", 8);
+        PlayerPrefs.SetInt("SFRIENDSHIP", 8);
+        PlayerPrefs.SetInt("ANXIETY", 7);
+        PlayerPrefs.SetInt("DEPRESSION", 7);
         SceneManager.LoadScene("DormRoom");
     }
 }

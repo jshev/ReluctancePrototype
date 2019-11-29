@@ -9,7 +9,8 @@ using UnityEngine.SceneManagement;
 public class DialogueManager : MonoBehaviour
 {
 	public Text dialogueText;
-    public Text consequences;
+    public Text friendCon;
+    public Text illnessCon;
 
     public GameObject environment;
     SpriteRenderer envSR;
@@ -25,12 +26,17 @@ public class DialogueManager : MonoBehaviour
     public GameObject phoneObj;
     public Sprite greyGrass;
     public Sprite grass;
+    public GameObject windowSabrina;
     SpriteRenderer phoneSR;
     public Dialogue dig;
+    int tempBFRIENDSHIP;
+    int tempSFRIENDSHIP;
+    int tempANXIETY;
+    int tempDEPRESSION;
 
     public Button[] toIDbuttons;
     // toID2 (0), toID3 (1), toID4 (2), toID5 (3), toID6 (4), toID8 (5), toID9 (6), toID10 (7), toID11 (8), toID12 (9)
-    // toID13 (10), toID14 (11), toID15 (12)
+    // toID13 (10), toID14 (11), toID15 (12), toID17 (13), toID18 (14), toID21 (15)
 
     public Sprite[] messageSprites;
     // 4 Botan, 1 Sabrina
@@ -53,6 +59,12 @@ public class DialogueManager : MonoBehaviour
         friendSR = friendPort.GetComponent<SpriteRenderer>();
         phoneSR = phoneObj.GetComponent<SpriteRenderer>();
         phoneObj.SetActive(false);
+        PlayerPrefs.SetString("leaveArea", "false");
+
+        tempBFRIENDSHIP = PlayerPrefs.GetInt("BFRIENDSHIP");
+        tempSFRIENDSHIP = PlayerPrefs.GetInt("SFRIENDSHIP");
+        tempANXIETY = PlayerPrefs.GetInt("ANXIETY");
+        tempDEPRESSION = PlayerPrefs.GetInt("DEPRESSION");
     }
 
 	public void StartDialogue(Dialogue dialogue)
@@ -159,7 +171,7 @@ public class DialogueManager : MonoBehaviour
                 friendSR.sprite = null;
                 // toID6
                 toIDbuttons[4].gameObject.SetActive(true);
-                PlayerPrefs.SetString("leaveDorm", "true");
+                PlayerPrefs.SetString("leaveArea", "true");
                 break;
 
 
@@ -175,6 +187,7 @@ public class DialogueManager : MonoBehaviour
                 disableAllButtons();
                 continueButt.gameObject.SetActive(false);
                 friendSR.sprite = botanSprite;
+                PlayerPrefs.SetInt("BFRIENDSHIP", (PlayerPrefs.GetInt("BFRIENDSHIP") - 1));
                 // toID10 and toID11
                 toIDbuttons[7].gameObject.SetActive(true);
                 toIDbuttons[8].gameObject.SetActive(true);
@@ -191,6 +204,9 @@ public class DialogueManager : MonoBehaviour
                 disableAllButtons();
                 continueButt.gameObject.SetActive(false);
                 friendSR.sprite = botanSprite;
+                PlayerPrefs.SetInt("BFRIENDSHIP", (PlayerPrefs.GetInt("BFRIENDSHIP") + 1));
+                PlayerPrefs.SetInt("ANXIETY", (PlayerPrefs.GetInt("ANXIETY") - 1));
+                PlayerPrefs.SetInt("DEPRESSION", (PlayerPrefs.GetInt("DEPRESSION") - 1));
                 // toID13 and toID14
                 toIDbuttons[10].gameObject.SetActive(true);
                 toIDbuttons[11].gameObject.SetActive(true);
@@ -199,6 +215,8 @@ public class DialogueManager : MonoBehaviour
                 disableAllButtons();
                 continueButt.gameObject.SetActive(false);
                 friendSR.sprite = botanSprite;
+                PlayerPrefs.SetInt("BFRIENDSHIP", (PlayerPrefs.GetInt("BFRIENDSHIP") - 1));
+                PlayerPrefs.SetInt("ANXIETY", (PlayerPrefs.GetInt("ANXIETY") + 1));
                 // toID13 and toID14
                 toIDbuttons[10].gameObject.SetActive(true);
                 toIDbuttons[11].gameObject.SetActive(true);
@@ -207,13 +225,15 @@ public class DialogueManager : MonoBehaviour
                 disableAllButtons();
                 continueButt.gameObject.SetActive(false);
                 friendSR.sprite = botanSprite;
+                PlayerPrefs.SetInt("BFRIENDSHIP", (PlayerPrefs.GetInt("BFRIENDSHIP") - 1));
                 // toID10 and toID11
                 toIDbuttons[7].gameObject.SetActive(true);
                 toIDbuttons[8].gameObject.SetActive(true);
                 break;
-            case 13:
-                SceneManager.LoadScene("Combat");
-                break;
+            //case 13:
+            //SceneManager.LoadScene("Combat");
+            //PlayerPrefs.SetString("leaveArea", "true");
+            //break;
             case 14:
                 disableAllButtons();
                 dialogueText.text = "";
@@ -224,8 +244,73 @@ public class DialogueManager : MonoBehaviour
                 // toID15
                 toIDbuttons[12].gameObject.SetActive(true);
                 break;
-            case 15:
-                SceneManager.LoadScene("Combat");
+            //case 15:
+            //SceneManager.LoadScene("Combat");
+            //PlayerPrefs.SetString("leaveArea", "true");
+            //break;
+            case 16:
+                continueButt.gameObject.SetActive(false);
+                disableAllButtons();
+                friendSR.sprite = botanSprite;
+                // toID17 and toID18
+                toIDbuttons[13].gameObject.SetActive(true);
+                toIDbuttons[14].gameObject.SetActive(true);
+                break;
+            case 17:
+                /*
+                 * ADD BOTAN GETTING FOOD ANIMATION HERE
+                 * start at entrance and end at corner table
+                 */
+                disableAllButtons();
+                dialogueText.text = "";
+                phoneObj.SetActive(false);
+                textBox.SetActive(false);
+                Time.timeScale = 1;
+                continueButt.gameObject.SetActive(false);
+                displayConsequence();
+                StartCoroutine(StartCountdown());
+
+                Debug.Log(PlayerPrefs.GetInt("BFRIENDSHIP"));
+                Debug.Log(PlayerPrefs.GetInt("SFRIENDSHIP"));
+                Debug.Log(PlayerPrefs.GetInt("ANXIETY"));
+                Debug.Log(PlayerPrefs.GetInt("DEPRESSION"));
+                break;
+            case 18:
+                /*
+                 * ADD BOTAN GETTING FOOD ANIMATION HERE
+                 * start at entrance and end at middle table
+                 */
+                disableAllButtons();
+                dialogueText.text = "";
+                phoneObj.SetActive(false);
+                textBox.SetActive(false);
+                Time.timeScale = 1;
+                continueButt.gameObject.SetActive(false);
+                displayConsequence();
+                StartCoroutine(StartCountdown());
+
+                Debug.Log(PlayerPrefs.GetInt("BFRIENDSHIP"));
+                Debug.Log(PlayerPrefs.GetInt("SFRIENDSHIP"));
+                Debug.Log(PlayerPrefs.GetInt("ANXIETY"));
+                Debug.Log(PlayerPrefs.GetInt("DEPRESSION"));
+                break;
+            case 19:
+                continueButt.gameObject.SetActive(false);
+                disableAllButtons();
+                friendSR.sprite = botanSprite;
+                PlayerPrefs.SetInt("ANXIETY", (PlayerPrefs.GetInt("ANXIETY") + 1));
+                // toID21
+                windowSabrina.SetActive(true);
+                toIDbuttons[15].gameObject.SetActive(true);
+                break;
+            case 20:
+                continueButt.gameObject.SetActive(false);
+                disableAllButtons();
+                friendSR.sprite = botanSprite;
+                PlayerPrefs.SetInt("ANXIETY", (PlayerPrefs.GetInt("ANXIETY") - 1));
+                // toID21
+                windowSabrina.SetActive(true);
+                toIDbuttons[15].gameObject.SetActive(true);
                 break;
             /*
             case 8:
@@ -553,6 +638,13 @@ public class DialogueManager : MonoBehaviour
                 textBox.SetActive(false);
                 Time.timeScale = 1;
                 continueButt.gameObject.SetActive(false);
+                displayConsequence();
+                StartCoroutine(StartCountdown());
+
+                Debug.Log(PlayerPrefs.GetInt("BFRIENDSHIP"));
+                Debug.Log(PlayerPrefs.GetInt("SFRIENDSHIP"));
+                Debug.Log(PlayerPrefs.GetInt("ANXIETY"));
+                Debug.Log(PlayerPrefs.GetInt("DEPRESSION"));
                 break;
         }
     }
@@ -572,13 +664,13 @@ public class DialogueManager : MonoBehaviour
         }
         */
 
-        if (envSR.sprite.name == "grass")
+        /*if (envSR.sprite.name == "grass")
         {
             //Debug.Log("White, change to grey");
             envSR.sprite = greyGrass;
 
         }
-        /*else
+        else
         {
             //Debug.Log("Grey, change to white");
             //environment.GetComponent<SpriteRenderer>().color = new Color(255f, 255f, 255f);
@@ -592,11 +684,110 @@ public class DialogueManager : MonoBehaviour
         currCountdownValue = countdownValue;
         while (currCountdownValue > 0)
         {
-            Debug.Log("Countdown: " + currCountdownValue);
+            //Debug.Log("Countdown: " + currCountdownValue);
             yield return new WaitForSeconds(1.0f);
             currCountdownValue--;
         }
-        consequences.text = "";
+        ///consequences.text = "";
+        friendCon.text = "";
+        illnessCon.text = "";
+    }
+
+    public void displayConsequence()
+    {
+        int bfriend = PlayerPrefs.GetInt("BFRIENDSHIP");
+        int sfriend = PlayerPrefs.GetInt("SFRIENDSHIP");
+        int anxiety = PlayerPrefs.GetInt("ANXIETY");
+        int depression = PlayerPrefs.GetInt("DEPRESSION");
+
+        if (bfriend < tempBFRIENDSHIP)
+        {
+            //friendCon.text = "Your relationship with Botan has worsened...";
+            if (sfriend < tempSFRIENDSHIP)
+            {
+                friendCon.text = "Your relationships with Botan and Sabrina have worsened...";
+            }
+            if (sfriend > tempSFRIENDSHIP)
+            {
+                friendCon.text = "Your relationship with Botan has worsened, but your relationship with Sabrina has improved.";
+            }
+            if (sfriend == tempSFRIENDSHIP)
+            {
+                friendCon.text = "Your relationship with Botan has worsened...";
+            }
+        }
+
+        if (bfriend > tempBFRIENDSHIP)
+        {
+            if (sfriend < tempSFRIENDSHIP)
+            {
+                friendCon.text = "Your relationship with Sabrina has worsened, but your relationship with Botan has improved.";
+            }
+            if (sfriend > tempSFRIENDSHIP)
+            {
+                friendCon.text = "Your relationships with Botan and Sabrina have improved!";
+            }
+            if (sfriend == tempSFRIENDSHIP)
+            {
+                friendCon.text = "Your relationship with Botan has improved!";
+            }
+        }
+        if (bfriend == tempBFRIENDSHIP)
+        {
+            if (sfriend < tempSFRIENDSHIP)
+            {
+                friendCon.text = "Your relationship with Sabrina has worsened...";
+            }
+            if (sfriend > tempSFRIENDSHIP)
+            {
+                friendCon.text = "Your relationship with Sabrina has improved!";
+            }
+        }
+
+
+
+        if (anxiety < tempANXIETY)
+        {
+            if (depression < tempDEPRESSION)
+            {
+                illnessCon.text = "Your anxiety and depression have improved!";
+            }
+            if (depression > tempDEPRESSION)
+            {
+                illnessCon.text = "Your anxiety has improved, but your depression has worsened.";
+            }
+            if (depression == tempDEPRESSION)
+            {
+                illnessCon.text = "Your anxiety has improved!";
+            }
+        }
+        if (anxiety > tempANXIETY)
+        {
+            if (depression < tempDEPRESSION)
+            {
+                illnessCon.text = "Your depression has improved, but your anxiety has worsened.";
+            }
+            if (depression > tempDEPRESSION)
+            {
+                illnessCon.text = "Your anxiety and depression have worsened…";
+            }
+            if (depression == tempDEPRESSION)
+            {
+                illnessCon.text = "Your anxiety has worsened…";
+            }
+        }
+        if (anxiety == tempANXIETY)
+        {
+            if (depression < tempDEPRESSION)
+            {
+                illnessCon.text = " Your depression has improved!";
+            }
+            if (depression > tempDEPRESSION)
+            {
+                illnessCon.text = "Your depression has worsened…";
+            }
+        }
+
     }
 
 }

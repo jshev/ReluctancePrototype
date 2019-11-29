@@ -25,7 +25,7 @@ public class doors : MonoBehaviour
             if (gameObject.name == "DormDoor")
             {
                 Debug.Log("DormDoor");
-                if (PlayerPrefs.GetString("leaveDorm") == "true")
+                if (PlayerPrefs.GetString("leaveArea") == "true")
                 {
                     Debug.Log("DormDoor true");
                     SceneManager.LoadScene("Hallway");
@@ -37,6 +37,10 @@ public class doors : MonoBehaviour
                 Debug.Log("CafeDoor");
                 SceneManager.LoadScene("Menu");
             } */
+            else if (gameObject.name == "destroy")
+            {
+                gameObject.SetActive(false);
+            }
 
         }
     }
