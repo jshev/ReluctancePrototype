@@ -3711,32 +3711,6 @@ PrefabInstance:
       propertyPath: pauseTxt
       value: 
       objectReference: {fileID: 671344706}
-    - target: {fileID: 9036699162719011792, guid: 528ea2506646dfb49927a58c7b89e5cd,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.24
-      objectReference: {fileID: 0}
-    - target: {fileID: 9036699162719011792, guid: 528ea2506646dfb49927a58c7b89e5cd,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.81
-      objectReference: {fileID: 0}
-    - target: {fileID: 5864372157232174166, guid: 528ea2506646dfb49927a58c7b89e5cd,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: af949329a4a9f408ebe2fc4fedabc1da,
-        type: 3}
-    - target: {fileID: 5864372157232174166, guid: 528ea2506646dfb49927a58c7b89e5cd,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 4.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 5864372157232174166, guid: 528ea2506646dfb49927a58c7b89e5cd,
-        type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 528ea2506646dfb49927a58c7b89e5cd, type: 3}
 --- !u!1 &1100150117 stripped

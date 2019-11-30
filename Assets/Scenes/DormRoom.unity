@@ -192,16 +192,6 @@ PrefabInstance:
       propertyPath: pauseTxt
       value: 
       objectReference: {fileID: 671344706}
-    - target: {fileID: 9036699162719011792, guid: 528ea2506646dfb49927a58c7b89e5cd,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.36
-      objectReference: {fileID: 0}
-    - target: {fileID: 9036699162719011792, guid: 528ea2506646dfb49927a58c7b89e5cd,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.72
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 528ea2506646dfb49927a58c7b89e5cd, type: 3}
 --- !u!1 &119286106 stripped
