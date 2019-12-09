@@ -2,12 +2,11 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/doors.cs">
     <Files>
       <File FileName="Assets/Scripts/PlayerMovement.cs" Line="28" Column="47" />
-      <File FileName="Assets/Scripts/DialogueManager.cs" Line="9" Column="5" />
-      <File FileName="Assets/Scripts/Buttons.cs" Line="27" Column="44" />
-      <File FileName="Assets/Scripts/combatManager.cs" Line="5" Column="1" />
+      <File FileName="Assets/Scripts/DialogueManager.cs" />
+      <File FileName="Assets/Scripts/Buttons.cs" />
+      <File FileName="Assets/Scripts/combatManager.cs" />
       <File FileName="Assets/Scripts/doors.cs" Line="53" Column="52" />
-      <File FileName="Assets/levelChanger.cs" Line="6" Column="86" />
-      <File FileName="Assets/Scripts/DialogueTrigger.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/DialogueTrigger.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -25,7 +24,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="353bfd14-03b0-461e-a21d-254e3f81f269" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="e8b60647-77de-48c8-b0a7-4dd0d0fc6997" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

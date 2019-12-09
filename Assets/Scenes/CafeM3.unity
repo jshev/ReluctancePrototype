@@ -6873,7 +6873,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1018847831}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.2, y: 1.1, z: 0}
+  m_LocalPosition: {x: -15.78, y: 1.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1395273260}
@@ -11332,6 +11332,7 @@ MonoBehaviour:
   friendPort: {fileID: 8356158754293212846}
   botanSprite: {fileID: 21300000, guid: af949329a4a9f408ebe2fc4fedabc1da, type: 3}
   sabrinaSprite: {fileID: 21300000, guid: 563fa01421bf34a3d822949c9e791408, type: 3}
+  professorSprite: {fileID: 0}
   textBox: {fileID: 2223868198257779843}
   continueButt: {fileID: 716365618}
   phoneObj: {fileID: 9189728138261201956}
@@ -11340,6 +11341,7 @@ MonoBehaviour:
   midTcol: {fileID: 0}
   corTcol: {fileID: 0}
   introBox: {fileID: 1018847831}
+  creeper: {fileID: 0}
   SabrinaIsAnAngel: {fileID: 0}
   dig:
     id: 0
@@ -16321,7 +16323,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2078100308}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.72, y: -0.74, z: 0}
+  m_LocalPosition: {x: 0.99, y: -0.74, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -17490,7 +17492,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9189728137516552733}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.815002, y: 1.1024998, z: -1}
+  m_LocalPosition: {x: -15.8, y: 1.1024998, z: -1}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 9189728137380414277}

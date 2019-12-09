@@ -52,6 +52,7 @@ public class doors : MonoBehaviour
             }
             else if (gameObject.name == "QuadDorr")
             {
+                Debug.Log("Quad zDoor.");
                 lvlC.FadeToLevel("Quad2");
             }
             else if (gameObject.name == "SchoolDoor")
