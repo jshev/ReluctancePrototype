@@ -6,13 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class combatManager : MonoBehaviour
 {
-    public Text enemyHtext;
-    public Text playerHtext;
+    //public Text enemyHtext;
+    //public Text playerHtext;
     public Text enemyTxt;
     public Text playerTxt;
 
-    int enemyHealth;
-    int playerHealth;
+    public int enemyMaxHealth;
+    public int playerMaxHealth;
+    public int enemyHealth;
+    public int playerHealth;
 
     int turnsUntilEattack;
     int turnsUntilPhealth;
@@ -21,20 +23,24 @@ public class combatManager : MonoBehaviour
     bool isolated;
     bool recovering;
 
+    HBController hbc;
+
     // Start is called before the first frame update
     void Start()
     {
-
         playerHealth = PlayerPrefs.GetInt("playerhealth");
-        playerHealth = 50;
-        enemyHealth = 50;
+        playerMaxHealth = 50;
+        enemyMaxHealth = 50;
+        playerHealth = playerMaxHealth;
+        enemyHealth = enemyMaxHealth;
         resting = false;
         charging = false;
         isolated = false;
         recovering = false;
-        playerHtext.text = "Player Health: " + playerHealth + "/50"; 
-        enemyHtext.text = "Enemy Health: " + enemyHealth + "/50";
+        //playerHtext.text = "Player Health: " + playerHealth + "/50"; 
+        //enemyHtext.text = "Enemy Health: " + enemyHealth + "/50";
 
+        hbc = FindObjectOfType<HBController>();
     }
 
     // Update is called once per frame
@@ -44,18 +50,21 @@ public class combatManager : MonoBehaviour
         {
             Debug.Log("Player won!");
             PlayerPrefs.SetInt("playerhealth", playerHealth);
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("TBC");
         }
 
         if (playerHealth <= 0)
         {
             //PlayerPrefs.SetInt("playerhealth", playerHealth);
             Debug.Log("Enemy won...");
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("TBC");
         }
 
         //Debug.Log("Recovering: " + recovering);
         //Debug.Log("Isolated: " + isolated);
+
+        hbc.updateEnemyHealthBar(enemyHealth);
+        hbc.updatePlayerHealthBar(playerHealth);
     }
 
     void attackPlayer()
@@ -109,7 +118,7 @@ public class combatManager : MonoBehaviour
                 //Debug.Log("Enemy used Eye Attack!");
                 enemyTxt.text = "Enemy used Eye Attack! It does 20 Damage!";
                 playerHealth -= 20;
-                playerHtext.text = "Player Health: " + playerHealth + "/50";
+                //playerHtext.text = "Player Health: " + playerHealth + "/50";
                 charging = false;
             } else
             {
@@ -127,7 +136,7 @@ public class combatManager : MonoBehaviour
     void laughAttack()
     {
         playerHealth -= 5;
-        playerHtext.text = "Player Health: " + playerHealth + "/50";
+        //playerHtext.text = "Player Health: " + playerHealth + "/50";
     }
 
 
@@ -144,7 +153,7 @@ public class combatManager : MonoBehaviour
             {
                 playerTxt.text = "Andrew used Scream! It does 5 Damage!";
                 enemyHealth -= 5;
-                enemyHtext.text = "Enemy Health: " + enemyHealth + "/50";
+                //enemyHtext.text = "Enemy Health: " + enemyHealth + "/50";
                 attackPlayer();
             } else
             {
@@ -173,9 +182,9 @@ public class combatManager : MonoBehaviour
                 //Debug.Log("Andrew used Lash Out!");
                 playerTxt.text = "Andrew used Lash Out! It damages both opponents!";
                 enemyHealth -= 10;
-                enemyHtext.text = "Enemy Health: " + enemyHealth + "/50";
+                //enemyHtext.text = "Enemy Health: " + enemyHealth + "/50";
                 playerHealth -= 5;
-                playerHtext.text = "Player Health: " + playerHealth + "/50";
+                //playerHtext.text = "Player Health: " + playerHealth + "/50";
                 attackPlayer();
             } else
             {
@@ -265,7 +274,7 @@ public class combatManager : MonoBehaviour
             //Debug.Log("Andrew is Rested!");
             playerTxt.text = "Andrew is Rested! He gains 15 HP!";
             playerHealth += 15;
-            playerHtext.text = "Player Health: " + playerHealth + "/50";
+            //playerHtext.text = "Player Health: " + playerHealth + "/50";
             resting = false;
         }
     }

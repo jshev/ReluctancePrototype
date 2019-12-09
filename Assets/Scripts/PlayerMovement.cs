@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+//using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     public GameObject[] slots;
     private Animator myAnimator;
 
+    levelChanger lvlC;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
         pauseTxt.text = "";
         inventory.SetActive(false);
         myAnimator = GetComponent<Animator>();
+
+        lvlC = FindObjectOfType<levelChanger>();
     }
 
     // Update is called once per frame
@@ -68,7 +72,8 @@ public class PlayerMovement : MonoBehaviour
             //addToInventory(bar);
         } else if (other.gameObject.tag == "Enemy")
         {
-            SceneManager.LoadScene("Combat");
+            //SceneManager.LoadScene("Combat");
+            lvlC.FadeToLevel("Combat");
         }
     }
 

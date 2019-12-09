@@ -1,13 +1,13 @@
 ﻿<Properties StartupConfiguration="{07734D49-99F7-5BD8-6369-A372DC8F6EFD}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/DialogueManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/doors.cs">
     <Files>
-      <File FileName="Assets/Scripts/PlayerMovement.cs" Line="62" Column="46" />
-      <File FileName="Assets/Scripts/DialogueManager.cs" Line="312" Column="47" />
+      <File FileName="Assets/Scripts/PlayerMovement.cs" Line="28" Column="47" />
+      <File FileName="Assets/Scripts/DialogueManager.cs" Line="9" Column="5" />
+      <File FileName="Assets/Scripts/Buttons.cs" Line="27" Column="44" />
+      <File FileName="Assets/Scripts/combatManager.cs" Line="5" Column="1" />
+      <File FileName="Assets/Scripts/doors.cs" Line="53" Column="52" />
+      <File FileName="Assets/levelChanger.cs" Line="6" Column="86" />
       <File FileName="Assets/Scripts/DialogueTrigger.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Dialogue.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Buttons.cs" Line="22" Column="9" />
-      <File FileName="Assets/Scripts/combatManager.cs" Line="53" Column="1" />
-      <File FileName="Assets/Scripts/doors.cs" Line="43" Column="14" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,7 +15,7 @@
           <Node name="Reluctance" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="DialogueManager.cs" selected="True" />
+                <Node name="doors.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -25,7 +25,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="509ef698-80fa-464f-9fe3-863e6da0f52a" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="353bfd14-03b0-461e-a21d-254e3f81f269" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

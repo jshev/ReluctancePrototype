@@ -21,9 +21,51 @@ EditorBuildSettings:
     path: Assets/Scenes/Quad1.unity
     guid: 8f7a024c204804900b143a4ee45b2a16
   - enabled: 1
+    path: Assets/Scenes/Cafe1.unity
+    guid: af3f1de26c18349128be23b5e4257acd
+  - enabled: 1
+    path: Assets/Scenes/CafeC2.unity
+    guid: 468a86839ff454f6db6a3c1d647f5867
+  - enabled: 1
+    path: Assets/Scenes/CafeM2.unity
+    guid: 289a54eaf045d480b823355c133e34a8
+  - enabled: 1
+    path: Assets/Scenes/CafeC3.unity
+    guid: bbb8c7fa8db03470a93bbf8c8a7f3c6f
+  - enabled: 1
+    path: Assets/Scenes/CafeM3.unity
+    guid: 8c0a2f7b8fb214d3e9cfa887675d1a5a
+  - enabled: 1
+    path: Assets/Scenes/Quad2.unity
+    guid: 6548916accf854f6ead57aaedd25fe84
+  - enabled: 1
+    path: Assets/Scenes/School1.unity
+    guid: cacd72a5e333c40339928f8cd7f6c875
+  - enabled: 1
+    path: Assets/Scenes/Class1.unity
+    guid: 984b11700344a4f9891d6939da2d6752
+  - enabled: 1
+    path: Assets/Scenes/ClassF2.unity
+    guid: 22e1735f6dd344135951624b727591e3
+  - enabled: 1
+    path: Assets/Scenes/ClassB2.unity
+    guid: 37a8ef172aa464a50acba2daf7d0fb35
+  - enabled: 1
+    path: Assets/Scenes/SchoolD2.unity
+    guid: f279615f4301e4dd2abca9c39b74df1d
+  - enabled: 1
+    path: Assets/Scenes/SchoolL2.unity
+    guid: 3418ebaf87e4f4c4dbb50241bf5ed665
+  - enabled: 1
+    path: Assets/Scenes/Bath1.unity
+    guid: c89d4ca1a68774217b8f517d91ba3a6e
+  - enabled: 1
     path: Assets/Scenes/Combat.unity
     guid: 76b26855a4df446ae85340c1741862e4
   - enabled: 1
+    path: Assets/Scenes/TBC.unity
+    guid: 378d77070efe249d69c49fa305b7747a
+  - enabled: 0
     path: Assets/Scenes/Demo.unity
     guid: 7fc9a984d7c5947f2be2d4ffed09052a
   m_configObjects: {}
